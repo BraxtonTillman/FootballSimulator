@@ -1,0 +1,2 @@
+// Implementation for Conference class
+

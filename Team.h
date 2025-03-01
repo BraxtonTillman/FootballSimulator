@@ -10,26 +10,31 @@ class Team {
 private:
     // Properties
     std::string name;
+    std::string conference;
     int wins = 0;
     int losses = 0;
 
 public:
     // Properties
-    float offenseRating;
-    float defenseRating;
-    float specialTeamsRating; 
+    float offenseRating=0;
+    float defenseRating=0;
+    float specialTeamsRating=0; 
 
     // Constructor
-    Team(std::string& name);
+    Team(std::string name,std::string conference);
 
     // Methods
-    void updateStats(); // Update wins and losses (this is a setter for the stats)
+    void recordWin(); // Update wins
+    void recordLoss(); // Update losses
     void buildRating(); // build the offense, defense, and special teams rating
 
     // Getters
     std::string getName(); // Get name
     int getWins(); // Get wins
     int getLosses(); // Get losses
+    float getOffenseRating(); // Get offense rating
+    float getDefenseRating(); // Get defense rating
+    float getSpecialTeamsRating(); // Get special teams rating
 };
 
 #endif // TEAM_H
