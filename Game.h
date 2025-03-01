@@ -17,6 +17,8 @@ public:
 
     // Methods
     Team simulateGame(); // Simulates the game and returns the winner and loser
+    int generateScore(float advantage);
+    int adjustScore(int score);
 };
 
 #endif // GAME_H

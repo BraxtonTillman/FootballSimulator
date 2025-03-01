@@ -15,7 +15,7 @@ private:
     std::vector<Team> teams;
 public:
     // Constructor
-    Conference(std::string& name);
+    Conference(std::string name);
 
     // Methods
     void addTeam(Team& team); // Add a team to the conference

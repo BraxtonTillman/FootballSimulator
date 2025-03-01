@@ -13,13 +13,11 @@ private:
     std::string conference;
     int wins = 0;
     int losses = 0;
-
-public:
-    // Properties
     float offenseRating=0;
     float defenseRating=0;
-    float specialTeamsRating=0; 
+    float specialTeamsRating=0;
 
+public:
     // Constructor
     Team(std::string name,std::string conference);
 
