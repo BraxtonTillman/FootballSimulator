@@ -12,7 +12,7 @@ Game::Game(Team& home, Team& away) : homeTeam(home), awayTeam(away) {
 }
 
 // Simulate the game 
-Team Game::simulateGame() {
+Team Game::simulateGame(Team& homeTeam, Team& awayTeam) {
     float homeOffense = homeTeam.getOffenseRating();
     float homeDefense = homeTeam.getDefenseRating();
     float homeSpecialTeams = homeTeam.getSpecialTeamsRating();
@@ -28,9 +28,17 @@ Team Game::simulateGame() {
     float homeAdvantage = homeOffense - awayDefense;
     float awayAdvantage = awayOffense - homeDefense;
 
+    // Test Matchup
+    std::cout << "Home Advantage: " << homeAdvantage << std::endl;
+    std::cout << "Away Advantage: " << awayAdvantage << std::endl;
+
     // Generate base score based on ratings
     homeScore = generateScore(homeAdvantage);
     awayScore = generateScore(awayAdvantage);
+
+    // Test scores before adjust
+    std::cout << "Home Score (Before Adjust): " << homeScore << std::endl;
+    std::cout << "Away Score (Before Adjust): " << awayScore << std::endl;
 
     // Special Teams Decider for Close Games
     if (abs(homeScore - awayScore) <= 7) {
@@ -46,14 +54,27 @@ Team Game::simulateGame() {
     homeScore = adjustScore(homeScore);
     awayScore = adjustScore(awayScore);
 
+    // Test scores after adjust
+    std::cout << "Home Score (After Adjust): " << homeScore << std::endl;
+    std::cout << "Away Score (After Adjust): " << awayScore << std::endl;
+
     // Determine winner and update record
     if (homeScore > awayScore) {
         homeTeam.recordWin();
         awayTeam.recordLoss();
+        //std::cout << "Home team won! Win recorded." << std::endl;
     }
     else if (awayScore > homeScore) {
         awayTeam.recordWin();
         homeTeam.recordLoss();
+        //std::cout << "Away team won! Win recorded." << std::endl;
+    }
+
+    if (homeScore > awayScore) {
+        return homeTeam;
+    }
+    else {
+        return awayTeam;
     }
 }
 
@@ -82,6 +103,10 @@ int Game::generateScore(float advantage) {
     }
 
     baseScore = (numTouchdowns * 7) + (numFieldGoals * 3);
+
+    // TEST
+    std::cout << "Base Score: " << baseScore << std::endl;
+
     return baseScore;
 }
 
@@ -93,6 +118,9 @@ int Game::adjustScore(int score) {
     int remainder = score % 10;
     if (remainder == 1 || remainder == 2) return score - remainder;  // Round down
     if (remainder == 8 || remainder == 9) return score + (10 - remainder);  // Round up
+    
+    // Testing adjusted score
+    std::cout << "Adjust function score: " << score << std::endl;
 
     return score;  // If already valid, return as is
 }

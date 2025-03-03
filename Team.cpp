@@ -3,6 +3,7 @@
 // Preprocessor Directives
 #include "Team.h"
 #include <random>
+#include <iostream>
 
 // Constructor
 Team::Team(std::string name, std::string conference): name(name), conference(conference) {}
@@ -10,10 +11,14 @@ Team::Team(std::string name, std::string conference): name(name), conference(con
 // Methods
 void Team::recordWin(){
     wins++;
+    // Test 
+    std::cout << name << " won! Wins: " << wins << std::endl;
 }
 
 void Team::recordLoss(){
     losses++;
+    // Test
+    std::cout << name << " lost! Losses: " << losses << std::endl;
 }
 
 void Team::buildRating() {

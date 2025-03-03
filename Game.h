@@ -16,7 +16,7 @@ public:
     Game(Team& homeTeam, Team& awayTeam);
 
     // Methods
-    Team simulateGame(); // Simulates the game and returns the winner and loser
+    Team simulateGame(Team& homeTeam, Team& awayTeam); // Simulates the game and returns the winner and loser
     int generateScore(float advantage);
     int adjustScore(int score);
 };
