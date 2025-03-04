@@ -11,8 +11,8 @@ private:
     // Properties
     std::string name;
     std::string conference;
-    int wins;
-    int losses;
+    int wins = 0;
+    int losses = 0;
     float offenseRating;
     float defenseRating;
     float specialTeamsRating;

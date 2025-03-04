@@ -12,7 +12,7 @@ Game::Game(Team& home, Team& away) : homeTeam(home), awayTeam(away) {
 }
 
 // Simulate the game 
-Team Game::simulateGame(Team& homeTeam, Team& awayTeam) {
+Team Game::simulateGame() {
     float homeOffense = homeTeam.getOffenseRating();
     float homeDefense = homeTeam.getDefenseRating();
     float homeSpecialTeams = homeTeam.getSpecialTeamsRating();
@@ -123,4 +123,12 @@ int Game::adjustScore(int score) {
     std::cout << "Adjust function score: " << score << std::endl;
 
     return score;  // If already valid, return as is
+}
+
+Team& Game::getHomeTeam() {
+    return homeTeam;
+}
+
+Team& Game::getAwayTeam() {
+    return awayTeam;
 }

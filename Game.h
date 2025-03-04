@@ -9,16 +9,18 @@
 class Game {
 private:
     // Properties
-    Team homeTeam;
-    Team awayTeam;
+    Team& homeTeam;
+    Team& awayTeam;
 public:
     // Constructor
     Game(Team& homeTeam, Team& awayTeam);
 
     // Methods
-    Team simulateGame(Team& homeTeam, Team& awayTeam); // Simulates the game and returns the winner and loser
+    Team simulateGame(); // Simulates the game and returns the winner and loser
     int generateScore(float advantage);
     int adjustScore(int score);
+    Team& getHomeTeam();
+    Team& getAwayTeam();
 };
 
 #endif // GAME_H

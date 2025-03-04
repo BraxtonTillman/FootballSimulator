@@ -23,4 +23,4 @@ public:
 
 };
 
-#endif // CONFERENC_H
+#endif // CONFERENCE_H
