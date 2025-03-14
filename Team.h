@@ -4,6 +4,7 @@
 
 // Preprocessor Directives
 #include <string>
+#include <memory>
 
 // CLASS HEADER
 class Team {

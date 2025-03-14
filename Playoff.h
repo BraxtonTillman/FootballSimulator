@@ -10,10 +10,12 @@
 class Playoff {
 private:
     // Properties
-    std::vector<Team> teams;
+    std::vector<Team*> teams;
 public:
+    // Constructor
+    Playoff(std::vector<Team*>& allTeams);
     // Methods
-    void addTeam(Team& team); // Add a team to the playoffs
+    void addTeam(Team* team); // Add a team to the playoffs
     void simulatePlayoff(); // Simulate playoffs
 };
 

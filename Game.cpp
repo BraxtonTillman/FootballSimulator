@@ -7,12 +7,12 @@
 #include <ctime>
 
 // Constructor
-Game::Game(Team& home, Team& away) : homeTeam(home), awayTeam(away) {
+Game::Game(Team& home, Team& away) : homeTeam(home), awayTeam(away), winner(nullptr) {
     std::srand(std::time(0));
 }
 
 // Simulate the game 
-Team Game::simulateGame() {
+Team& Game::simulateGame() {
     float homeOffense = homeTeam.getOffenseRating();
     float homeDefense = homeTeam.getDefenseRating();
     float homeSpecialTeams = homeTeam.getSpecialTeamsRating();
@@ -131,4 +131,8 @@ Team& Game::getHomeTeam() {
 
 Team& Game::getAwayTeam() {
     return awayTeam;
+}
+
+Team& Game::getWinner() {
+    return *winner;
 }

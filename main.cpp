@@ -1,5 +1,5 @@
 
-
+#include "Playoff.h"
 #include "Season.h"
 #include "Game.h"
 #include "Team.h"
@@ -47,14 +47,24 @@ int main(){
 
     // Create a season and add games
     Season season;
-    
+    season.addTeam(&team1);
+    season.addTeam(&team2);
+    season.addTeam(&team3);
+    season.addTeam(&team4);
+
     Game game1(team1, team2);
     Game game2(team2, team3);
     Game game3(team3, team4);
+    Game game4(team1, team3);
+    Game game5(team1, team4);
+    Game game6(team2, team4);
     
     season.addGame(game1);
     season.addGame(game2);
     season.addGame(game3);
+    season.addGame(game4);
+    season.addGame(game5);
+    season.addGame(game6);
 
     
     // Simulate the season
@@ -67,6 +77,14 @@ int main(){
     std::cout << team3.getName() << " Wins: " << team3.getWins() << " Losses: " << team3.getLosses() << std::endl;
     std::cout << team4.getName() << " Wins: " << team4.getWins() << " Losses: " << team4.getLosses() << std::endl;
     
+    /////// TESTING PLAYOFF CLASS ///////
+    std::cout << "\n \n \n";
     
+    Playoff playoff(season.getTeams());
+    
+    playoff.simulatePlayoff();
+
+
+
     return 0;
 }

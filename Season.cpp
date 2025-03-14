@@ -2,6 +2,11 @@
 #include "Season.h"
 #include <iostream>
 
+// Add a team to the season
+void Season::addTeam(Team* team) {
+    teams.push_back(team);
+}
+
 // Add a game to the season
 void Season::addGame(Game& game) {
     games.push_back(game);
@@ -22,3 +27,6 @@ std::vector<Game> Season::getGames() {
     return games;
 }
 
+std::vector<Team*>& Season::getTeams() {
+    return teams;
+}

@@ -11,16 +11,18 @@ private:
     // Properties
     Team& homeTeam;
     Team& awayTeam;
+    Team* winner;
 public:
     // Constructor
     Game(Team& homeTeam, Team& awayTeam);
 
     // Methods
-    Team simulateGame(); // Simulates the game and returns the winner and loser
+    Team& simulateGame(); // Simulates the game and returns the winner and loser
     int generateScore(float advantage);
     int adjustScore(int score);
     Team& getHomeTeam();
     Team& getAwayTeam();
+    Team& getWinner();
 };
 
 #endif // GAME_H
